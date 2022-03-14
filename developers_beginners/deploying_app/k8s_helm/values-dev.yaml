@@ -1,0 +1,16 @@
+environment: "development"
+imageTag: "1"
+
+image: "auroradevacr.azurecr.io/workshop/flask-app-pare"
+imageTag: "0"
+
+containerName: hello-world
+
+## Labels to be added to pods
+podLabels:
+  WBS: E.TDI.00005
+
+securityContext:
+  readOnlyRootFilesystem: true
+  runAsGroup: 3000
+  runAsUser: 1000

@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+- deployment.yaml
+
+namePrefix: pare-
+
+# you can add labels here if they affect all environments, or specify them in the overlays
+commonLabels:
+  WBS: E.TDI.00005
