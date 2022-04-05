@@ -12,8 +12,8 @@ commonLabels:
   app: aurora-example-flask-app
   argocd.argoproj.io/instance: hello-world-instance
 
-namespace: pare
+namespace: workshop
 images:
 - name: hello-world
-  newName: auroradevacr.azurecr.io/workshop/flask-app-pare
+  newName: auroradevacr.azurecr.io/workshop/flask-app
   newTag: "0"

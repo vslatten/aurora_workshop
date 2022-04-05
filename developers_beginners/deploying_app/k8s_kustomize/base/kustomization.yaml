@@ -4,7 +4,7 @@ kind: Kustomization
 resources:
 - deployment.yaml
 
-namePrefix: pare-
+namePrefix: username-
 
 # you can add labels here if they affect all environments, or specify them in the overlays
 commonLabels:

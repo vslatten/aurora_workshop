@@ -1,5 +1,5 @@
-image: "auroradevacr.azurecr.io/workshop-dev/your-image"
-imageTag: "0"
+image: "auroradevacr.azurecr.io/workshop/flask-app"
+imageTag: "1"
 imagePullPolicy: "Always"
 
 ## Labels to be added to pods

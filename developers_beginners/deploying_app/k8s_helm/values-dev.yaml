@@ -1,7 +1,6 @@
 environment: "development"
-imageTag: "1"
 
-image: "auroradevacr.azurecr.io/workshop/flask-app-pare"
+image: "auroradevacr.azurecr.io/workshop/flask-app"
 imageTag: "0"
 
 containerName: hello-world
