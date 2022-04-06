@@ -11,18 +11,18 @@ FROM python:3.8-slim
 # You can also choose any name for the keys.
 # The choice of maintainer and appname in this example
 # is a personal choice.
-LABEL "maintainer"="put your name here" "appname"="Flask Hello World"
+LABEL "maintainer"="aurora team" "appname"="Flask Hello World"
 # ENV instruction assigns environment variables.
 # The /usr/src directory holds downloaded programs,
 # be it source or binary before installing them.
-ENV applocation /usr/src
+ENV app-location /usr/src
 # COPY instruction copies files or directories,
 # from the Docker host to the Docker image.
 # You'll copy the source code to the Docker image.
 # The command below uses the set environment variable.
-COPY . $applocation/flask-helloworld
+COPY . $app-location/flask-helloworld
 # Using the ENV instruction again.
-ENV flaskapp $applocation/flask-helloworld
+ENV flaskapp $app-location/flask-helloworld
 # WORKDIR instruction changes the current directory in Docker image.
 # The command below changes directory to /usr/src/flask-helloworld.
 # The target directory uses the environment variable.

@@ -13,7 +13,7 @@ az account set --subscription S913-Aurora-Non-production
 ```
 Authenticate into the workshop13 cluster
 ```
-aurora_subscription="S913-Aurora-Non-production"; cluster_name="workshop13"; az aks get-credentials --overwrite-existing --resource-group ${cluster_name} --name ${cluster_name} --subscription ${aurora_subscription}
+az aks get-credentials --overwrite-existing --resource-group workshop13 --name workshop13 --subscription S913-Aurora-Non-production
 ```
 Set your context
 ```

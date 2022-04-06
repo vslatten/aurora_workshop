@@ -9,7 +9,10 @@ containerName: hello-world
 podLabels:
   WBS: E.TDI.00005
 
+replicas: 1
+
 securityContext:
   readOnlyRootFilesystem: true
   runAsGroup: 3000
   runAsUser: 1000
+  runAsNonRoot: true

@@ -12,3 +12,4 @@ spec:
           readOnlyRootFilesystem: true
           runAsGroup: 3000
           runAsUser: 1000
+          runAsNonRoot: true

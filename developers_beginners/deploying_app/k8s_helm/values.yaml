@@ -5,3 +5,9 @@ imagePullPolicy: "Always"
 ## Labels to be added to pods
 podLabels:
   WBS: E.TDI.00005
+
+securityContext:
+  readOnlyRootFilesystem: true
+  runAsGroup: 3000
+  runAsUser: 1000
+  runAsNonRoot: false
