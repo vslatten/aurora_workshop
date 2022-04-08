@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    WBS: E.TDI.00005
+    app: aurora-example-flask-app
+    argocd.argoproj.io/instance: hello-world-instance
+  name: pare-hello-world-flask-app-dev
+  namespace: pare
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      WBS: E.TDI.00005
+      app: aurora-example-flask-app
+      argocd.argoproj.io/instance: hello-world-instance
+  template:
+    metadata:
+      labels:
+        WBS: E.TDI.00005
+        app: aurora-example-flask-app
+        argocd.argoproj.io/instance: hello-world-instance
+    spec:
+      containers:
+      - image: auroradevacr.azurecr.io/workshop/flask-app-pare:0
+        imagePullPolicy: Always
+        name: hello-world
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          runAsGroup: 3000
+          runAsUser: 1000

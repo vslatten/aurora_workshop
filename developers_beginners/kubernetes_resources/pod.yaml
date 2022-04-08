@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sleep-username
+spec:
+  containers:
+  - name: sleep-app
+    image: auroradevacr.azurecr.io/aurora-examples/aurora-examples-sleep_app:1
+    command:
+        - /bin/bash
+        - '-c'
+        - sleep infinity
+    resources:
+      requests:
+        memory: "64Mi"
+        cpu: "250m"
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    securityContext:
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
+      runAsGroup: 3000
+      runAsUser: 1000
