@@ -1,4 +1,5 @@
 # Kustomize Structure
+```
 ~/deploying_app
 ├──src
 │  ├── your_app_files
@@ -16,10 +17,11 @@
             ├── kustomization.yaml
             ├── resource_patch_prod_1.yaml
             └── resource_patch_prod_2.yaml
-
+```
 
 
 # Helm Structure
+```
 ~/deploying_app
 ├──src
 │  ├── your_app_files
@@ -32,3 +34,10 @@
    ├── values.yaml
    └── values-dev.yaml
 
+```
+
+
+## Deploy to Argocd
+1) Add the application to argocd: `argocd app create -f application-dev.yaml`
+2) View the application at: https://dashboard.dev.aurora.equinor.com/applications/example
+3) Sync the app

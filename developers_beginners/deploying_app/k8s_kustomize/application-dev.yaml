@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: username-kustomize-flask-app
+spec:
+  project: training
+  source:
+    repoURL: 'git@github.com:equinor/aurora-technical-training.git'
+    targetRevision: HEAD
+    path: developers_beginners/deploying_app/k8s_kustomize/overlays/development
+  destination:
+    server: 'https://workshop13-f8cb1a00.hcp.northeurope.azmk8s.io:443'
+    namespace: workshop

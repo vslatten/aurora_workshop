@@ -12,8 +12,3 @@ docker build  --label com.equinor.aurora.project="workshop" \
 docker push auroradevacr.azurecr.io/your-project-name/your-image-name:your-tag-number 
 
 ```
-
-## Deploy to Argocd
-1) Add the application to argocd: `argocd app create -f application-dev.yaml`
-2) View the application at: https://dashboard.dev.aurora.equinor.com/applications/example
-3) Sync the app
