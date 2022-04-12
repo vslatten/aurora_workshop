@@ -7,5 +7,5 @@ description: A Hello World Flask app running on Aurora
 sources:
   - https://github.com/equinor/aurora-technical-training
 maintainers:
-  - name: Paloma Rebuelta # change your name here
-    email: pare@equinor.com # change your email here
+  - name: Your Name # change your name here
+    email: username@equinor.com # change your email here

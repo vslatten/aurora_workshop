@@ -3,7 +3,7 @@ kind: Application
 metadata:
   name: username-helm-flask-app
 spec:
-  project: training
+  project: workshop
   source:
     repoURL: 'git@github.com:equinor/aurora-technical-training.git'
     targetRevision: HEAD
