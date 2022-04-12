@@ -8,7 +8,11 @@ To build the container we run:
 ```
 az acr login --name auroradevacr
 docker build  --label com.equinor.aurora.project="workshop" \
-              --tag auroradevacr.azurecr.io/workshop-dev/flask-app-your-name:your-tag-number . 
+              --tag auroradevacr.azurecr.io/workshop-dev/flask-app-your-name:your-tag-number .
 docker push auroradevacr.azurecr.io/your-project-name/your-image-name:your-tag-number 
+```
 
+To check the image is correctly stored:
+```
+az acr repository show -n auroradevacr.azurecr.io --repository your-project-name/your-image-name
 ```
