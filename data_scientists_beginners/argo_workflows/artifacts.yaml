@@ -4,6 +4,7 @@ metadata:
   generateName: artifact-passing-
 spec:
   entrypoint: artifact-example
+  serviceAccountName: workflow-runner
   templates:
   - name: artifact-example
     steps:

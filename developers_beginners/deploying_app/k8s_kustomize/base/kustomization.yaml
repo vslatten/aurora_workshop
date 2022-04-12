@@ -3,8 +3,9 @@ kind: Kustomization
 
 resources:
 - deployment.yaml
+- job.yaml
 
-namePrefix: username-
+namePrefix: USER-
 
 # you can add labels here if they affect all environments, or specify them in the overlays
 commonLabels:

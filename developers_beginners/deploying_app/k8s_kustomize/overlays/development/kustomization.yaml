@@ -15,5 +15,5 @@ commonLabels:
 namespace: workshop
 images:
 - name: hello-world
-  newName: auroradevacr.azurecr.io/workshop/flask-app
+  newName: auroradevacr.azurecr.io/workshop/flask-app-USER
   newTag: "0"

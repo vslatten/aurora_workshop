@@ -1,9 +1,9 @@
 environment: "development"
 
-image: "auroradevacr.azurecr.io/workshop/flask-app"
-imageTag: "0"
+image: "auroradevacr.azurecr.io/workshop-dev/flask-app-USER"
+imageTag: "2"
 
-containerName: hello-world
+containerName: hello-world-USER
 
 ## Labels to be added to pods
 podLabels:
@@ -16,3 +16,6 @@ securityContext:
   runAsGroup: 3000
   runAsUser: 1000
   runAsNonRoot: true
+
+namespace: USER
+prefix: USER-test

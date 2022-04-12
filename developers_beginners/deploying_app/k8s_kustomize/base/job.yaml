@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: slack-notification-
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+spec:
+  template:
+    spec:
+      containers:
+      - name: slack-notification
+        image: curlimages/curl
+        command:
+        - curl
+        - -X
+        - POST
+        - --data-urlencode
+        - 'payload={"channel": "#aurora-dev", "username": "hello", "text":
+          "App Sync succeeded"}'
+        - https://hooks.slack.com/services/...
+      restartPolicy: Never
+  backoffLimit: 2

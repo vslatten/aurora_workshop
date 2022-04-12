@@ -54,3 +54,4 @@ This command allows you to check the final yaml resulting from your environment 
 ```
 kustomize build k8s_kustomize/overlays/development > k8s_kustomize/kustomization/manifests.yaml
 ```
+
