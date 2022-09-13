@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: username-kustomize-flask-app
+  name: USER-kustomize-flask-app
 spec:
   project: workshop
   source:

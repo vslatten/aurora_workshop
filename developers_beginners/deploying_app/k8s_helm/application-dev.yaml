@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: username-helm-flask-app
+  name: USER-helm-flask-app
 spec:
   project: workshop
   source:

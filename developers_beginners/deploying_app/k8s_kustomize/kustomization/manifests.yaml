@@ -5,8 +5,8 @@ metadata:
     WBS: E.TDI.00005
     app: aurora-example-flask-app
     argocd.argoproj.io/instance: hello-world-instance
-  name: pare-hello-world-flask-app-dev
-  namespace: pare
+  name: USER-hello-world-flask-app-dev
+  namespace: workshop
 spec:
   replicas: 1
   selector:
@@ -22,7 +22,7 @@ spec:
         argocd.argoproj.io/instance: hello-world-instance
     spec:
       containers:
-      - image: auroradevacr.azurecr.io/workshop/flask-app-pare:0
+      - image: auroradevacr.azurecr.io/workshop/flask-app-USER:0
         imagePullPolicy: Always
         name: hello-world
         resources:
@@ -34,6 +34,6 @@ spec:
             memory: 128Mi
         securityContext:
           readOnlyRootFilesystem: true
-          runAsNonRoot: true
           runAsGroup: 3000
+          runAsNonRoot: true
           runAsUser: 1000
