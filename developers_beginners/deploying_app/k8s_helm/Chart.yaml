@@ -1,0 +1,11 @@
+apiVersion: v2
+name: aurora-example-flask-app
+home: https://github.com/equinor/aurora-technical-training
+version: 0.0.1
+appVersion: 0.0.1
+description: A Hello World Flask app running on Aurora
+sources:
+  - https://github.com/equinor/aurora-technical-training
+maintainers:
+  - name: Your Name # change your name here
+    email: username@equinor.com # change your email here

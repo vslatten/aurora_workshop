@@ -1,0 +1,21 @@
+bases:
+- ../../base
+
+patches:
+- replicas_patch.yaml
+- securitycontext_patch.yaml
+- resources_patch.yaml
+
+nameSuffix: -prod
+
+commonLabels:
+  release: hello-world-app
+  app: hello-world-app
+  argocd.argoproj.io/instance: hello-world-instance
+
+namespace: workshop
+
+images:
+- name: hello-world
+  newName: auroradevacr.azurecr.io/workshop-prod/your-image
+  newTag: "0"

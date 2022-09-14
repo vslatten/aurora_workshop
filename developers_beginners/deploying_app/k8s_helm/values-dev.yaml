@@ -1,0 +1,21 @@
+environment: "development"
+
+image: "auroradevacr.azurecr.io/workshop-dev/flask-app-USER"
+imageTag: "2"
+
+containerName: hello-world-USER
+
+## Labels to be added to pods
+podLabels:
+  WBS: E.TDI.00005
+
+replicas: 1
+
+securityContext:
+  readOnlyRootFilesystem: true
+  runAsGroup: 3000
+  runAsUser: 1000
+  runAsNonRoot: true
+
+namespace: USER
+prefix: USER-test

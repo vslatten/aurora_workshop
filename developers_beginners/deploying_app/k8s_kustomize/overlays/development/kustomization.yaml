@@ -1,0 +1,19 @@
+bases:
+- ../../base
+
+patches:
+- replicas_patch.yaml
+- securitycontext_patch.yaml
+- resources_patch.yaml
+
+nameSuffix: -dev
+
+commonLabels:
+  app: aurora-example-flask-app
+  argocd.argoproj.io/instance: hello-world-instance
+
+namespace: workshop
+images:
+- name: hello-world
+  newName: auroradevacr.azurecr.io/workshop/flask-app-USER
+  newTag: "0"

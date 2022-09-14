@@ -1,0 +1,99 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+  labels:
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
+    chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    app: "{{ .Values.namespace }}-app"
+spec:
+  replicas: {{ .Values.replicas }}
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: "{{ .Values.namespace }}-app"
+  template:
+    metadata:
+      labels:
+        heritage: {{ .Release.Service | quote }}
+        release: {{ .Release.Name | quote }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        app: "{{ .Values.namespace }}-app"
+        {{-  range $key, $value := .Values.podLabels }}
+        {{ $key }}: "{{ $value }}"
+        {{- end }}
+    spec:
+      containers:
+      - name: {{ .Values.containerName }}
+        image: "{{ .Values.image }}:{{ .Values.imageTag }}"
+        imagePullPolicy: "{{ .Values.imagePullPolicy }}"
+        securityContext:
+          readOnlyRootFilesystem: {{ .Values.securityContext.readOnlyRootFilesystem }}
+          runAsGroup: {{ .Values.securityContext.runAsGroup }}
+          runAsUser: {{ .Values.securityContext.runAsUser }}
+          runAsNonRoot: {{ .Values.securityContext.runAsNonRoot }} 
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "100m"
+            memory: "128Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: "{{ .Values.namespace }}-service"
+spec:
+  selector:
+    app: "{{ .Values.namespace }}-app"
+  ports:
+    - protocol: TCP
+      port: 5000
+      targetPort: 5000
+
+---
+kind: VirtualService
+apiVersion: networking.istio.io/v1beta1
+metadata:
+  name: "{{ .Values.namespace }}-vs"
+spec:
+  gateways:
+    - istio-system/istio-gateway
+  hosts:
+    - "*"
+  http:
+    - match:
+        - uri:
+            prefix: /{{ .Values.prefix }}/
+      route:
+        - destination:
+            host: "{{ .Values.namespace }}-service.{{ .Values.namespace }}.svc.cluster.local"
+            port:
+              number: 5000
+      rewrite:
+        uri: /
+
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: "{{ .Values.namespace }}-netpol"
+spec:
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: istio-system
+          podSelector:
+            matchLabels:
+              istio: ingressgateway
+      ports:
+        - port: 5000
+          protocol: TCP
+  podSelector:
+    matchLabels:
+      app: "{{ .Values.namespace }}-app"
+  policyTypes:
+    - Ingress
