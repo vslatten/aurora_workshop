@@ -12,7 +12,7 @@ FROM python:3.8-alpine
 # You can also choose any name for the keys.
 # The choice of maintainer and appname in this example
 # is a personal choice.
-LABEL "maintainer"="aurora team" "appname"="Flask Hello World"
+LABEL "maintainer"="visla" "appname"="Flask Hello World"
 
 # COPY instruction copies files or directories,
 # from the Docker host to the Docker image.

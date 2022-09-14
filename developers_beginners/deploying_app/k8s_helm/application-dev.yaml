@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: USER-helm-flask-app
+  name: visla-helm-flask-app
 spec:
   project: workshop
   source:
     repoURL: 'git@github.com:equinor/aurora-technical-training.git'
-    targetRevision: HEAD
+    targetRevision: visla-edc
     path: developers_beginners/deploying_app/k8s_helm
     helm:
       valueFiles:

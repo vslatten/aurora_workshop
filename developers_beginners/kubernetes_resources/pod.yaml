@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: sleep-username
+  name: sleep-visla
 spec:
   containers:
   - name: sleep-app
